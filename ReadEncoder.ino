@@ -124,13 +124,15 @@ ISR(TIMER1_COMPA_vect) {
 
 void setup() {
   setup_all_encoders();
-  setup_timer();
+  //setup_timer();
 //  enc1.setIpin(4);
 //  enc1.setQpin(5);
   Serial.begin(115200);
   //pinMode(led, OUTPUT);
   for(int i=4;i<14;i++){
-    pinMode(i, INPUT_PULLUP);
+    //pinMode(i, INPUT_PULLUP);
+    pinMode(i, INPUT);
+
   }
   pinMode(3, OUTPUT);
   pinMode(2, OUTPUT);
@@ -145,6 +147,7 @@ void loop() {
   //int i_enc = digitalRead(51);
   //int i_enc = PIO_PD1;
   //enc1.sample();
+  sample_all_encoders();
   Serial.print("Digital:");
   for(int i=4;i<14;i++){
     Serial.print(" ");
